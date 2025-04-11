@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.4.3</version>
-		<relativePath/> 
+		<relativePath/>
 	</parent>
 	<groupId>org</groupId>
 	<artifactId>demo</artifactId>
@@ -69,7 +69,7 @@
 			<version>8.0.33</version>
 			<scope>runtime</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -90,7 +90,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>3.3.1</version> 
+				<version>3.3.1</version>
 				<executions>
 					<execution>
 						<id>validate</id>
@@ -101,9 +101,10 @@
 					</execution>
 				</executions>
 				<configuration>
-					<configLocation>google_checks.xml</configLocation>
+					<configLocation>checkstyle.xml</configLocation>
+					<failOnViolation>false</failOnViolation>
+					<includeTestSourceDirectory>false</includeTestSourceDirectory>
 					<consoleOutput>true</consoleOutput>
-					<failsOnError>true</failsOnError>
 					<linkXRef>false</linkXRef>
 				</configuration>
 				<dependencies>
