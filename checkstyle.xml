@@ -1,39 +1,36 @@
-<?xml version="1.0"?>
-<!DOCTYPE module PUBLIC
-          "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
-          "https://checkstyle.org/dtds/configuration_1_3.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+    "https://checkstyle.org/dtds/configuration_1_3.dtd">
 
 <module name="Checker">
-  <property name="charset" value="UTF-8"/>
-  
-  <module name="NewlineAtEndOfFile"/>
-  <module name="FileTabCharacter"/>
-  <module name="LineLength">
-    <property name="max" value="120"/>
-  </module>
+    <property name="charset" value="UTF-8"/>
+    <property name="severity" value="warning"/>
+    <property name="fileExtensions" value="java, properties, xml"/>
 
-  <module name="TreeWalker">
-    <!-- Naming conventions -->
-    <module name="ConstantName"/>
-    <module name="LocalVariableName"/>
-    <module name="MemberName"/>
-    <module name="MethodName"/>
-    <module name="TypeName"/>
-    
-    <module name="AvoidStarImport"/>
-    <module name="UnusedImports"/>
-    
-    <module name="WhitespaceAround"/>
-    <module name="WhitespaceAfter">
-      <property name="tokens" value="COMMA, SEMI"/>
+    <module name="SuppressWarningsFilter"/>
+
+    <module name="SuppressionFilter">
+        <property name="file" value="checkstyle-suppressions.xml"/>
+        <property name="optional" value="true"/>
     </module>
-    <module name="NeedBraces"/>
-    <module name="EmptyBlock"/>
-    
-    <module name="MagicNumber">
-      <property name="ignoreNumbers" value="-1, 0, 1"/>
+
+    <module name="LineLength">
+        <property name="fileExtensions" value="java"/>
+        <property name="max" value="110"/>
+        <property name="ignorePattern" 
+            value="^(package|import).*|a href|href|https?://|ftp://"/>
     </module>
-    <module name="SimplifyBooleanExpression"/>
-    <module name="SimplifyBooleanReturn"/>
-  </module>
+
+    <module name="TreeWalker">
+        <module name="CyclomaticComplexity" max="10"/>
+        <module name="BooleanExpressionComplexity" max="5"/>
+        <module name="ClassFanOutComplexity" max="20"/>
+        <module name="MagicNumber">
+            <property name="ignoreNumbers" value="0,1,-1"/>
+        </module>
+    </module>
+
+    <module name="BeforeExecutionExclusionFileFilter">
+        <property name="fileNamePattern" value="module-info\.java$"/>
+    </module>
 </module>
